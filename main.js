@@ -3,6 +3,7 @@ import { update as updateSnakeFood , draw as drawSnakeFood } from './food.js'
 import { outsideGameBoard } from "./grid.js"
 
 
+
 let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.querySelector(".game_board")
@@ -10,9 +11,7 @@ const gameBoard = document.querySelector(".game_board")
 
 function main(currentTime){
     if(gameOver){
-        if(confirm("you lost the game press ok to restat the game🥌🎮")){
-            window.location = "/"
-        }
+       displayModel()
         return
     }
     window.requestAnimationFrame(main)
@@ -21,6 +20,7 @@ function main(currentTime){
     if(secondsSinceLastRender < 1 / snakeSpeed ) return
 
     lastRenderTime = currentTime
+
     update()
     draw()
 }
@@ -42,4 +42,24 @@ function draw(){
 
 function loosingGame(){
     gameOver = outsideGameBoard(getSnakeHead()) || snakeCrossItSelf()
+}
+
+function displayModel(){
+    let modelParent = document.querySelector(".model")
+    let restartBtn = document.querySelector("#restart")
+    let cancelBtn = document.querySelector("#cancel")
+
+    if(gameOver){
+       modelParent.style.top = "unset"
+       restartBtn.addEventListener("click",()=>{
+        window.location = "/"
+
+       })
+
+       cancelBtn.addEventListener("click",()=>{
+        modelParent.style.top = "-10000px"
+       })
+       
+        
+    }
 }

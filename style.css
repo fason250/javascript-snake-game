@@ -7,14 +7,15 @@
 body{
     height: 100dvh;
     width: 100%;
-    background-color: #000;
+    background-color: #ada6a6;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .game_board{
-    background-color: #ddd;
+    background-color: #0e8992;
     width: 100vmin;
     height: 100vmin;
     display: grid;
@@ -22,10 +23,41 @@ body{
     grid-template-columns: repeat(21,1fr);
 }
 .snake{
-    background-color: hsl(120, 89%, 43%);
+    background-color: #bb220e;
     border: .25vmin solid #000;
 }
 .food{
-    background-color: hsl(59, 86%, 49%);
+    background-color: #11d60a;
     border: .25vmin solid black;
+}
+.model{
+    position: absolute;
+    max-width: 350px;
+    min-width: 280px;
+    padding: 12px 16px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+    top: -10000px;
+
+}
+.model h3{
+    margin-block: 15px;
+}
+.model #restart{
+    background-color: cadetblue;
+    color: #fff;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.model #cancel{
+    background-color: #d83a3a;
+    color: #fff;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 15px;
+    cursor: pointer;
 }
